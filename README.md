@@ -1,75 +1,23 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Minimal repro of https://github.com/oven-sh/bun/issues/9569
 
 ## Setup
 
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+```
+bun i
 ```
 
-## Development Server
+- With `bun run dev`, it works as normal.
 
-Start the development server on `http://localhost:3000`:
+- With `bun run --bun dev`
 
-```bash
-# npm
-npm run dev
+    ```
+    ERROR  [worker reload] [worker init] 1 | (function (entry, fetcher)
+        ^
+    SyntaxError: Export named 'diffieHellman' not found in module 'crypto'.
 
-# pnpm
-pnpm run dev
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+    ^
+    SyntaxError: Export named 'diffieHellman' not found in module 'crypto'.
+    
+    at #onError (node:worker_threads:168:11)
+    ```
