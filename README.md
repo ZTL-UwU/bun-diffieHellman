@@ -8,6 +8,13 @@ bun i
 
 - With `bun run dev`, it works as normal.
 
+- Running the server after building works as well.
+
+    ```
+    NITRO_PRESET="bun" bun run build
+    bun run .output/server/index.mjs
+    ```
+
 - With `bun run --bun dev`
 
     ```
